@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuTour - Game Flow</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary:#E89B6D;
+    --secondary:#D97548;
+    --accent:#F4C7A8;
+    --bg:#FFF8F3;
+    --dark:#4A3428;
+    --light:#8B7666;
+    --card:#fff;
+    --shadow:rgba(212,117,72,.2);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+body {
+    font-family:Poppins,sans-serif;
+    background:linear-gradient(135deg,var(--bg),#fff2e8);
+    color:var(--dark);
+}
+
+/* NAV */
+.nav {
+    position:fixed;
+    top:0; left:0; right:0;
+    background:rgba(255,248,243,.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 5px 20px var(--shadow);
+    z-index:1000;
+}
+.nav-inner {
+    max-width:1400px;
+    margin:auto;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo {
+    font-family:"Playfair Display",serif;
+    font-size:1.7em;
+    color:var(--primary);
+    font-weight:700;
+    cursor:pointer;
+}
+.dots { display:flex; gap:12px; }
+.dot {
+    width:12px; height:12px;
+    border-radius:50%;
+    background:var(--accent);
+    cursor:pointer;
+    transition:.3s;
+}
+.dot.active {
+    width:36px;
+    border-radius:8px;
+    background:var(--secondary);
+}
+
+/* PAGES */
+.page {
+    display:none;
+    padding:120px 20px 60px;
+    animation:fade .4s ease;
+}
+.page.active { display:block; }
+
+@keyframes fade { from{opacity:0} to{opacity:1} }
+
+/* HERO */
+.hero {
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+.hero h1 {
+    font-family:"Playfair Display",serif;
+    font-size:4em;
+    color:var(--secondary);
+}
+.hero p {
+    color:var(--light);
+    font-size:1.3em;
+    margin:20px 0 40px;
+}
+.cta {
+    display:inline-block;
+    padding:16px 45px;
+    border-radius:50px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 10px 30px var(--shadow);
+    transition:.3s;
+}
+.cta:hover { transform:translateY(-3px); }
+
+/* FLOWCHART CARD */
+.card {
+    max-width:1400px;
+    margin:auto;
+    background:var(--card);
+    border-radius:28px;
+    padding:40px;
+    box-shadow:0 15px 50px var(--shadow);
+}
+.card h2 {
+    font-family:"Playfair Display",serif;
+    font-size:2.4em;
+    color:var(--secondary);
+    margin-bottom:20px;
+    text-align:center;
+}
+
+/* LAYOUT */
+.flow-layout {
+    display:grid;
+    grid-template-columns:1fr 360px;
+    gap:30px;
+}
+
+/* IMAGE */
+.flow-wrapper {
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    border:2px solid rgba(232,155,109,.25);
+    box-shadow:0 10px 25px var(--shadow);
+    cursor:zoom-in;
+    transition:.3s;
+}
+.flow-wrapper:hover { transform:translateY(-3px); }
+
+.flow-img {
+    width:100%;
+    height:auto;
+    display:block;
+    image-rendering:-webkit-optimize-contrast;
+    filter:contrast(1.05) saturate(1.05);
+    transition:.4s;
+}
+
+.flow-wrapper:hover .flow-img {
+    transform:scale(1.02);
+    filter:contrast(1.1) saturate(1.1);
+}
+
+/* FULLSCREEN ZOOM */
+.flow-wrapper.zoomed {
+    position:fixed;
+    inset:5%;
+    z-index:3000;
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 40px 100px rgba(0,0,0,.5);
+    cursor:zoom-out;
+}
+.flow-wrapper.zoomed .flow-img {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    transform:none;
+    filter:none;
+}
+
+/* SIDEBAR */
+.sidebar {
+    background:var(--card);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px var(--shadow);
+    border-left:5px solid var(--primary);
+    position:sticky;
+    top:120px;
+}
+.sidebar h3 {
+    color:var(--secondary);
+    margin-bottom:10px;
+}
+.sidebar p { color:var(--dark); line-height:1.6; }
+
+/* NAV BUTTONS */
+.nav-btns {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:40px;
+}
+.btn {
+    padding:12px 36px;
+    border-radius:50px;
+    border:2px solid var(--primary);
+    background:white;
+    color:var(--primary);
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+.btn:hover {
+    background:var(--primary);
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* MOBILE */
+@media(max-width:1000px){
+    .flow-layout{ grid-template-columns:1fr; }
+    .sidebar{ position:static; }
+    .hero h1{ font-size:2.8em; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+    <div class="nav-inner">
+        <div class="logo" onclick="go(0)">Cooking Game</div>
+        <div class="dots">
+            <div class="dot active" onclick="go(0)"></div>
+            <div class="dot" onclick="go(1)"></div>
+            <div class="dot" onclick="go(2)"></div>
+            <div class="dot" onclick="go(3)"></div>
+            <div class="dot" onclick="go(4)"></div>
+        </div>
+    </div>
+</div>
+
+<!-- HOME -->
+<div class="page active" id="p0">
+    <div class="hero">
+        <h1>System Flow of LuTour</h1>
+        <p>LuTour is a fast-paced cooking game explores the beauty of the Philippines through its culture, cuisine, and people as the protagonist inherits a recipe book passed down through generations, only to discover that several recipes are missing. By traveling to the family’s hometown and across different locations in the Philippines, the protagonist uncovers the missing pieces of their legacy by meeting people from various regions and cooking their signature foods and desserts. Players progress through levels that highlight different Filipino provinces, each with three difficulties that must be completed to advance, while earning achievements for completing recipes in the cookbook. By finishing levels, players earn coins to upgrade kitchen equipment and decorations, making levels easier, and can also use power-ups to help them along the way.</p>
+        <a class="cta" onclick="go(1)">Start Tour →</a>
+    </div>
+</div>
+
+<!-- START MENU -->
+<div class="page" id="p1">
+<div class="card">
+<h2>Start Menu Flow</h2>
+<div class="flow-layout">
+<div class="flow-wrapper">
+    <img src="STARTMENU.svg" class="flow-img">
+</div>
+<div class="sidebar">
+    <h3>Start Menu Logic</h3>
+    <p>This diagram shows the initial menu options and navigation paths.</p>
+    <br> <br> <br> <br> <br> <br> <br> <br>
+    <h3>Instructions</h3>
+    <p>Double-click the image to fullscreen zoom. Click anywhere to explore the logic visually. Double-click again to exit fullscreen.</p>
+    <br>
+    <h3>NOTE</h3>
+    <p style="background-color: #ead1dc;">TERMINATOR</p>
+    <p style="background-color: #D9D2E9;">INPUT/OUTPUT</p>
+    <p style="background-color: #cfe2f3;">PROCESS</p>
+    <p style="background-color: #d9ead3;">DECISION</p>
+    <p style="background-color: #fce5cd;">DISPLAY</p>
+    <p style="background-color: #E6B8AF;">PAGE CONNECTOR</p>
+
+</div>
+</div>
+<div class="nav-btns">
+<button class="btn" onclick="go(0)">← Home</button>
+<button class="btn" onclick="go(2)">Next →</button>
+</div>
+</div>
+</div>
+
+<!-- MAIN MENU -->
+<div class="page" id="p2">
+<div class="card">
+<h2>Main Menu Flow</h2>
+<div class="flow-layout">
+<div class="flow-wrapper">
+    <img src="MAINMENU.svg" class="flow-img">
+</div>
+<div class="sidebar">
+    <h3>Main Menu Logic</h3>
+    <p>This diagram shows navigation, settings, and progression paths.</p>
+    <br>
+    <h3>Regions</h3>
+    <p><em><b>Luzon, Visayas, and Mindanao</b></em></p>
+    <br> <br> <br> <br> <br> <br> <br> 
+    <h3>Instructions</h3>
+    <p>Double-click the image to fullscreen zoom. Click anywhere to explore the logic visually. Double-click again to exit fullscreen.</p>
+    <br>
+    <h3>NOTE</h3>
+    <p style="background-color: #ead1dc;">TERMINATOR</p>
+    <p style="background-color: #D9D2E9;">INPUT/OUTPUT</p>
+    <p style="background-color: #cfe2f3;">PROCESS</p>
+    <p style="background-color: #d9ead3;">DECISION</p>
+    <p style="background-color: #fce5cd;">DISPLAY</p>
+    <p style="background-color: #E6B8AF;">PAGE CONNECTOR</p>
+</div>
+</div>
+<div class="nav-btns">
+<button class="btn" onclick="go(1)">← Previous</button>
+<button class="btn" onclick="go(3)">Next →</button>
+</div>
+</div>
+</div>
+
+<!-- GAMEPLAY -->
+<div class="page" id="p3">
+<div class="card">
+<h2>Gameplay Flow</h2>
+<div class="flow-layout">
+<div class="flow-wrapper">
+    <img src="GAMEPLAY.svg" class="flow-img">
+</div>
+<div class="sidebar">
+    <h3>Gameplay Loop</h3>
+    <p>Order handling, cooking, scoring, and failure states.</p>
+    <br>
+    <h3>Upgrades</h3>
+    <ul type="circle">
+      <li>Equipmet (stove, pans, pots, etc.)</li>
+      <li>Decoration (Banderitas, Karaoke Machine, etc.)</li>
+    <h3>Power Ups</h3>
+    <dd>
+    <ul type="circle">
+      <li>Freeze Timer</li>
+      <li>Double Coins/Score</li>
+      <li>Customer's Patience Restore</li>
+    </dd>
+    </ul>
+    <h3>NOTE</h3>
+    <p><b>&lt;---</b> <em>beside <b>Pre-lvl Setup</b> indicates its inner process </em></p>
+    <p><b>&lt;⋅⋅⋅⋅</b> <em>beside <b>Display Game Proper Screen</b> indicates the option to pause the game</em></p>
+    <p><b>&lt;---</b> <em>beside <b>Prepare Orders</b> indicates the option to use powerups</em></p>
+    <p style="background-color: #ead1dc;">TERMINATOR</p>
+    <p style="background-color: #D9D2E9;">INPUT/OUTPUT</p>
+    <p style="background-color: #cfe2f3;">PROCESS</p>
+    <p style="background-color: #d9ead3;">DECISION</p>
+    <p style="background-color: #fce5cd;">DISPLAY</p>
+    <p style="background-color: #E6B8AF;">PAGE CONNECTOR</p>
+</div>
+</div>
+<div class="nav-btns">
+<button class="btn" onclick="go(2)">← Previous</button>
+<button class="btn" onclick="go(4)">Next →</button>
+</div>
+</div>
+</div>
+
+<!-- PROGRESS -->
+<div class="page" id="p4">
+<div class="card">
+<h2>Game Progress Flow</h2>
+<div class="flow-layout">
+<div class="flow-wrapper">
+    <img src="GAMEPROG.svg" class="flow-img">
+</div>
+<div class="sidebar">
+    <h3>Progression</h3>
+    <p>Handles unlocks, levels, and long-term player progression.</p>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <h3>NOTE</h3>
+    <p style="background-color: #ead1dc;">TERMINATOR</p>
+    <p style="background-color: #D9D2E9;">INPUT/OUTPUT</p>
+    <p style="background-color: #cfe2f3;">PROCESS</p>
+    <p style="background-color: #d9ead3;">DECISION</p>
+    <p style="background-color: #fce5cd;">DISPLAY</p>
+    <p style="background-color: #E6B8AF;">PAGE CONNECTOR</p>
+</div>
+</div>
+<div class="nav-btns">
+<button class="btn" onclick="go(3)">← Previous</button>
+<button class="btn" onclick="go(0)">Home</button>
+</div>
+</div>
+</div>
+
+<script>
+let current = 0;
+
+function go(i){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('p'+i).classList.add('active');
+    document.querySelectorAll('.dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    current=i;
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* DOUBLE CLICK ZOOM */
+document.addEventListener('dblclick',e=>{
+    const wrap = e.target.closest('.flow-wrapper');
+    if(!wrap) return;
+    wrap.classList.toggle('zoomed');
+    document.body.style.overflow = wrap.classList.contains('zoomed') ? 'hidden' : 'auto';
+});
+</script>
+
+</body>
+</html>
