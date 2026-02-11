@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LuTour - Game Flow</title>
+<title>Pamana - Game Flow</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
@@ -239,8 +239,8 @@ body {
 <!-- HOME -->
 <div class="page active" id="p0">
     <div class="hero">
-        <h1>System Flow of LuTour</h1>
-        <p>LuTour is a fast-paced cooking game explores the beauty of the Philippines through its culture, cuisine, and people as the protagonist inherits a recipe book passed down through generations, only to discover that several recipes are missing. By traveling to the family’s hometown and across different locations in the Philippines, the protagonist uncovers the missing pieces of their legacy by meeting people from various regions and cooking their signature foods and desserts. Players progress through levels that highlight different Filipino provinces, each with three difficulties that must be completed to advance, while earning achievements for completing recipes in the cookbook. By finishing levels, players earn coins to upgrade kitchen equipment and decorations, making levels easier, and can also use power-ups to help them along the way.</p>
+        <h1>System Flow of Pamana</h1>
+        <p>Pamana is a fast-paced cooking game that explores the beauty of the Philippines through its culture, cuisine, and people. The story follows a protagonist who inherits a generational recipe book, only to discover that several recipes are missing. By traveling to their family’s hometown and across various regions, the protagonist uncovers pieces of their legacy by meeting locals and cooking signature regional dishes. Players progress through levels highlighting different Filipino provinces, each featuring three difficulty modes that must be completed to advance. Along the way, players earn coins to upgrade kitchen equipment and decorations—making levels easier—and can use power-ups to help them succeed.</p>
         <a class="cta" onclick="go(1)">Start Tour →</a>
     </div>
 </div>
@@ -251,11 +251,11 @@ body {
 <h2>Start Menu Flow</h2>
 <div class="flow-layout">
 <div class="flow-wrapper">
-    <img src="STARTMENU.svg" class="flow-img">
+    <img src="STARTMENU(2).svg" class="flow-img">
 </div>
 <div class="sidebar">
     <h3>Start Menu Logic</h3>
-    <p>This diagram shows the initial menu options and navigation paths.</p>
+    <p>This part of the diagram shows the initial menu options and navigation paths.</p>
     <br> <br> <br> <br> <br> <br> <br> <br>
     <h3>Instructions</h3>
     <p>Double-click the image to fullscreen zoom. Click anywhere to explore the logic visually. Double-click again to exit fullscreen.</p>
@@ -283,17 +283,21 @@ body {
 <h2>Main Menu Flow</h2>
 <div class="flow-layout">
 <div class="flow-wrapper">
-    <img src="MAINMENU.svg" class="flow-img">
+    <img src="MAINMENU(2).svg" class="flow-img">
 </div>
 <div class="sidebar">
     <h3>Main Menu Logic</h3>
-    <p>This diagram shows navigation, settings, and progression paths.</p>
+    <p>Handles main menu navigation before proceeding to gameplay.</p>
     <br>
-    <h3>Regions</h3>
+    <h3>Islands</h3>
     <p><em><b>Luzon, Visayas, and Mindanao</b></em></p>
-    <br> <br> <br> <br> <br> <br> <br> 
-    <h3>Instructions</h3>
-    <p>Double-click the image to fullscreen zoom. Click anywhere to explore the logic visually. Double-click again to exit fullscreen.</p>
+    <br>
+    <h3>Chef's Side Quests</h3>
+    <ul type="circle"> 
+      <li><b><em>Petsa de Peligro</em></b> : Serve 25 ‘Pastil’ to Students</li>
+      <li><b><em>The More the Merrier</em></b> : Serve 10 ‘Barkada’</li>
+      <li><b><em>It’s More Fun in the Philippines</em></b> : Unlock all locations</li>
+    </ul>
     <br>
     <h3>NOTE</h3>
     <p style="background-color: #ead1dc;">TERMINATOR</p>
@@ -317,17 +321,17 @@ body {
 <h2>Gameplay Flow</h2>
 <div class="flow-layout">
 <div class="flow-wrapper">
-    <img src="GAMEPLAY.svg" class="flow-img">
+    <img src="GAMEPLAY(2).svg" class="flow-img">
 </div>
 <div class="sidebar">
-    <h3>Gameplay Loop</h3>
-    <p>Order handling, cooking, scoring, and failure states.</p>
+    <h3>Gameplay Logic</h3>
+    <p>Illustrates cooking gameplay loop including timer management, customer service, and power-up usage.</p>
     <br>
     <h3>Upgrades</h3>
     <ul type="circle">
       <li>Equipmet (stove, pans, pots, etc.)</li>
       <li>Decoration (Banderitas, Karaoke Machine, etc.)</li>
-    <h3>Power Ups</h3>
+    <h3>Power-Ups</h3>
     <dd>
     <ul type="circle">
       <li>Freeze Timer</li>
@@ -336,9 +340,8 @@ body {
     </dd>
     </ul>
     <h3>NOTE</h3>
-    <p><b>&lt;---</b> <em>beside <b>Pre-lvl Setup</b> indicates its inner process </em></p>
-    <p><b>&lt;⋅⋅⋅⋅</b> <em>beside <b>Display Game Proper Screen</b> indicates the option to pause the game</em></p>
-    <p><b>&lt;---</b> <em>beside <b>Prepare Orders</b> indicates the option to use powerups</em></p>
+    <p><b>Dashed Arrows (&lt;---)</b> <em>maps internal process.</em></p>
+    <p><b>Dotted Arrows (&lt;⋅ ⋅ ⋅ ⋅)</b> <em>maps alternative options/processes.</em></p>
     <p style="background-color: #ead1dc;">TERMINATOR</p>
     <p style="background-color: #D9D2E9;">INPUT/OUTPUT</p>
     <p style="background-color: #cfe2f3;">PROCESS</p>
@@ -357,15 +360,22 @@ body {
 <!-- PROGRESS -->
 <div class="page" id="p4">
 <div class="card">
-<h2>Game Progress Flow</h2>
+<h2>Game Progression Flow</h2>
 <div class="flow-layout">
 <div class="flow-wrapper">
-    <img src="GAMEPROG3.svg" class="flow-img">
+    <img src="GAMEPROG(2).svg" class="flow-img">
 </div>
 <div class="sidebar">
-    <h3>Progression</h3>
-    <p>Handles unlocks, levels, and long-term player progression.</p>
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <h3>Game Progression Logic</h3>
+    <p>Tracks level completion, reward acquisition, achievement displays, and long-term player progression.</p>
+    <br>
+    <h3>Achievements(badges)</h3>
+    <ul type="circle">
+      <li><b><em>Petsa de Peligro</em></b></li>
+      <li><b><em>The More the Merrier</em></b></li>
+      <li><b><em>It’s More Fun in the Philippines</em></b></li> 
+    </ul>
+    <br><br><br><br><br><br><br><br>
     <h3>NOTE</h3>
     <p style="background-color: #ead1dc;">TERMINATOR</p>
     <p style="background-color: #D9D2E9;">INPUT/OUTPUT</p>
@@ -404,4 +414,3 @@ document.addEventListener('dblclick',e=>{
 
 </body>
 </html>
-
