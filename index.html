@@ -246,11 +246,15 @@ p{
 
 <!-- HOME -->
 <div class="page active" id="p0">
-    <div class="hero">
+    <div class="hero" style="overflow: hidden;">
         <h1>System Flow of Pamana</h1>
         <p style="text-align: center;">Pamana is a 2D single-player fast-paced cooking simulator game developed in Unity for PC. Players are immersed in the beautiful sceneries of the Philippines while delighting on the food and their culture through cooking and serving customers. The game mixes time-pressured gameplay with a rich story line that will enhance the immersive feel of the game. Its gameplay mainly revolves around exploring, cooking, earning for upgrades, and completing goals to advance to the next level.</p>
-        <a class="cta" onclick="go(1)">Start System →</a>
+        <div class="conta">
+        <img style="position: relative; top: 100%; " src="FlowOverview.svg" alt="">
+            <div class="box" style="position: absolute; bottom: -15%; left: 50%; transform: translateX(-50%);"><a class="cta" onclick="go(1)">Start System →</a> </div>
+        </div>
     </div>
+    
 </div>
 
 <!-- START MENU -->
@@ -259,12 +263,15 @@ p{
 <h2>Start Menu Flow</h2>
 <div class="flow-layout">
 <div class="flow-wrapper">
-    <img src="STARTMENU(5).svg" class="flow-img">
+    <img src="START.svg" class="flow-img">
 </div>
 <div class="sidebar">
     <h3>Start Menu Logic</h3>
     <p text-align="justify">This part of the diagram shows the initial menu options and navigation paths.</p>
-    <br> <br> <br> <br> <br> <br> <br> <br>
+    <h3>Progression & Control Scheme</h3>
+    <div class="flow-wrapper">
+    <img src="Controls.svg" class="flow-img">
+</div>
     <h3>Instructions</h3>
     <p text-align="justify">Double-click the image to fullscreen zoom. Click anywhere to explore the logic visually. Double-click again to exit fullscreen.</p>
     <br>
@@ -273,6 +280,7 @@ p{
     <p style="background-color: #D9D2E9;">&nbsp;&nbsp;&nbsp;INPUT/OUTPUT</p>
     <p style="background-color: #cfe2f3;">&nbsp;&nbsp;&nbsp;PROCESS</p>
     <p style="background-color: #d9ead3;">&nbsp;&nbsp;&nbsp;DECISION/CONDITION</p>
+    <p style="background-color: #93C47D ;">&nbsp;&nbsp;&nbsp;INITIALIZATION</p>
     <p style="background-color: #fce5cd;">&nbsp;&nbsp;&nbsp;DISPLAY</p>
     <p style="background-color: #E6B8AF;">&nbsp;&nbsp;&nbsp;PAGE CONNECTOR</p>
 
@@ -291,7 +299,7 @@ p{
 <h2>Main Menu Flow</h2>
 <div class="flow-layout">
 <div class="flow-wrapper">
-    <img src="MAINMENU(5).svg" class="flow-img">
+    <img src="MAIN.svg" class="flow-img">
 </div>
 <div class="sidebar">
     <h3>Main Menu Logic</h3>
@@ -300,7 +308,7 @@ p{
     <h3>Islands</h3>
     <p><em><b>Luzon</b>, <b>Visayas</b>, and <b>Mindanao</b></em></p>
     <br>
-    <h3>Chef's Side Quests</h3>
+    <h3>Sample Chef's Side Quests</h3>
     <ul type="circle" style="text-align:justify"> 
       <li><b><em>Petsa de Peligro</em></b> : Serve 25 ‘Pastil’ to Students</li>
       <li><b><em>The More the Merrier</em></b> : Serve 10 ‘Barkada’</li>
@@ -308,6 +316,8 @@ p{
     </ul>
     <br>
     <h3>NOTE</h3>
+    <p><b>Dashed Arrows (&lt;---)</b> <em>maps internal process.</em></p>
+    <p><b>Dotted &nbsp;&nbsp;&nbsp;Arrows &nbsp;&nbsp;&nbsp;(&lt;⋅ ⋅ ⋅ ⋅)</b> &nbsp;&nbsp;&nbsp;<em>maps alternative &nbsp;&nbsp;&nbsp;options/processes.</em></p>
     <p style="background-color: #ead1dc;">&nbsp;&nbsp;&nbsp;TERMINATOR</p>
     <p style="background-color: #D9D2E9;">&nbsp;&nbsp;&nbsp;INPUT/OUTPUT</p>
     <p style="background-color: #cfe2f3;">&nbsp;&nbsp;&nbsp;PROCESS</p>
@@ -329,24 +339,19 @@ p{
 <h2>Gameplay Flow</h2>
 <div class="flow-layout">
 <div class="flow-wrapper">
-    <img src="GAMEPLAY(5).svg" class="flow-img">
+    <img src="GAME.svg" class="flow-img">
 </div>
 <div class="sidebar">
     <h3>Gameplay Logic</h3>
     <p>Illustrates cooking gameplay loop including timer management, customer service, and power-up usage.</p>
     <br>
-    <h3>Upgrades(For Aesthetics Only)</h3>
-    <ul type="circle">
-      <li><b>Equipment</b> (stove, pans, pots, etc.)</li>
-      <li><b>Decoration</b> (Banderitas, Karaoke Machine, etc.)</li>
-    <h3>Power-Ups</h3>
-    <dd>
-    <ul type="circle">
-      <li>Freeze Timer</li>
-      <li>Double Coins/Score</li>
-      <li>Customer's Patience Restore</li>
-    </dd>
-    </ul>
+    <h3>Upgrades/Power-Ups/Scoring</h3>
+
+<div class="flow-wrapper">
+    <img src="Score.svg" class="flow-img">
+</div>
+
+
     <h3>NOTE</h3>
     <p><b>Dashed Arrows (&lt;---)</b> <em>maps internal process.</em></p>
     <p><b>Dotted &nbsp;&nbsp;&nbsp;Arrows &nbsp;&nbsp;&nbsp;(&lt;⋅ ⋅ ⋅ ⋅)</b> &nbsp;&nbsp;&nbsp;<em>maps alternative &nbsp;&nbsp;&nbsp;options/processes.</em></p>
@@ -354,6 +359,7 @@ p{
     <p style="background-color: #D9D2E9;">&nbsp;&nbsp;&nbsp;INPUT/OUTPUT</p>
     <p style="background-color: #cfe2f3;">&nbsp;&nbsp;&nbsp;PROCESS</p>
     <p style="background-color: #d9ead3;">&nbsp;&nbsp;&nbsp;DECISION/CONDITION</p>
+    <p style="background-color: #93C47D ;">&nbsp;&nbsp;&nbsp;INITIALIZATION</p>
     <p style="background-color: #fce5cd;">&nbsp;&nbsp;&nbsp;DISPLAY</p>
     <p style="background-color: #E6B8AF;">&nbsp;&nbsp;&nbsp;PAGE CONNECTOR</p>
     
@@ -372,7 +378,7 @@ p{
 <h2>Game Progression Flow</h2>
 <div class="flow-layout">
 <div class="flow-wrapper">
-    <img src="GAMEPROG(5).svg" class="flow-img">
+    <img src="PROG.svg" class="flow-img">
 </div>
 <div class="sidebar">
     <h3>Game Progression Logic</h3>
@@ -391,7 +397,9 @@ p{
     <p style="background-color: #ead1dc;">&nbsp;&nbsp;&nbsp;TERMINATOR</p>
     <p style="background-color: #D9D2E9;">&nbsp;&nbsp;&nbsp;INPUT/OUTPUT</p>
     <p style="background-color: #cfe2f3;">&nbsp;&nbsp;&nbsp;PROCESS</p>
+    <p style="background-color: #a2c4c9 ;">&nbsp;&nbsp;&nbsp;PRE-DEFINED PROCESS</p>
     <p style="background-color: #d9ead3;">&nbsp;&nbsp;&nbsp;DECISION/CONDITION</p>
+    <p style="background-color: #93C47D ;">&nbsp;&nbsp;&nbsp;INITIALIZATION</p>
     <p style="background-color: #fce5cd;">&nbsp;&nbsp;&nbsp;DISPLAY</p>
     <p style="background-color: #E6B8AF;">&nbsp;&nbsp;&nbsp;PAGE CONNECTOR</p>
 </div>
@@ -425,6 +433,5 @@ document.addEventListener('dblclick',e=>{
 
 </body>
 </html>
-
 
 
